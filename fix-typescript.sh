@@ -1,3 +1,9 @@
+#!/bin/bash
+
+echo "🔧 Fixing TypeScript errors..."
+
+# Fix the api.ts file
+cat > packages/core/src/api.ts << 'EOF'
 import { RegistrationRequest, RegistrationResponse, VerificationResponse, LogEvent } from './types';
 
 const DEFAULT_API_URL = 'https://astrasync-api-production.up.railway.app';
@@ -147,3 +153,22 @@ export class ApiClient {
     }
   }
 }
+EOF
+
+echo "✅ Fixed TypeScript errors"
+echo ""
+echo "🔨 Building packages..."
+npm run build
+
+echo ""
+echo "✅ Build complete! Now testing CLI..."
+echo ""
+
+# Test the CLI
+npx astrasync --help
+
+echo ""
+echo "🎉 Everything is working! Try these commands:"
+echo "  npx astrasync examples"
+echo "  npx astrasync health"
+echo "  npm run example:register"

@@ -1,3 +1,9 @@
+#!/bin/bash
+
+echo "🔧 Fixing Letta adapter..."
+
+# Fix packages/sdk/src/protocols/letta.ts
+cat > packages/sdk/src/protocols/letta.ts << 'EOF'
 import { Agent, ProtocolAdapter } from '@astrasync/core';
 import { open, Entry, ZipFile } from 'yauzl';
 import { promisify } from 'util';
@@ -111,3 +117,39 @@ function isZipContent(content: string): boolean {
   // Check for ZIP file magic bytes (PK)
   return content.startsWith('PK');
 }
+EOF
+
+echo "✅ Fixed Letta adapter"
+echo ""
+echo "🔨 Building packages..."
+npm run build
+
+if [ $? -eq 0 ]; then
+  echo ""
+  echo "✅ Build successful!"
+  echo ""
+  echo "🔗 Linking packages..."
+  cd packages/core && npm link && cd ../..
+  cd packages/sdk && npm link @astrasync/core && npm link && cd ../..
+  
+  echo ""
+  echo "📦 Testing the SDK..."
+  npx astrasync --version
+  
+  echo ""
+  echo "🎉 SDK is ready! Try these commands:"
+  echo ""
+  echo "  # Show examples of all agent formats"
+  echo "  npx astrasync examples"
+  echo ""
+  echo "  # Check API health"
+  echo "  npx astrasync health"
+  echo ""
+  echo "  # Register an agent"
+  echo "  npx astrasync register examples/mcp-agent.json --email your@email.com"
+  echo ""
+  echo "  # Detect agent format"
+  echo "  npx astrasync detect examples/letta-agent.json"
+else
+  echo "❌ Build failed. Check the errors above."
+fi
