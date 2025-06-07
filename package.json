@@ -1,0 +1,47 @@
+{
+  "name": "@astrasync/sdk",
+  "version": "0.1.0",
+  "description": "Universal SDK for AstraSync AI Agent Registration",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "clean": "lerna clean && rm -rf node_modules",
+    "dev": "lerna run dev --parallel",
+    "publish:preview": "lerna publish --canary --preid preview",
+    "example:register": "ts-node packages/examples/quick-start.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "lerna": "^8.0.0",
+    "prettier": "^3.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AstraSyncAI/astrasync-sdk"
+  },
+  "keywords": [
+    "astrasync",
+    "ai",
+    "agents",
+    "identity",
+    "registry",
+    "mcp",
+    "letta",
+    "acp"
+  ],
+  "author": "AstraSync",
+  "license": "MIT"
+}

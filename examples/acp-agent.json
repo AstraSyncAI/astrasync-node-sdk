@@ -1,0 +1,25 @@
+{
+  "agentId": "ACP-EXAMPLE-001",
+  "name": "Example Compliance Monitor",
+  "description": "An ACP agent that monitors compliance",
+  "skills": [
+    {
+      "id": "audit-analyzer",
+      "name": "Audit Analyzer",
+      "description": "Analyzes agent interactions for compliance"
+    },
+    {
+      "id": "risk-assessor",
+      "name": "Risk Assessor",
+      "description": "Assesses risk levels of agent actions"
+    }
+  ],
+  "capabilities": {
+    "streaming": true,
+    "auditTrail": true,
+    "blockchainAttestation": true
+  },
+  "authentication": {
+    "schemes": ["oauth2", "api-key"]
+  }
+}

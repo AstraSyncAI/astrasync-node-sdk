@@ -1,0 +1,13 @@
+{
+  "name": "Example MCP Agent",
+  "description": "A sample MCP protocol agent for testing",
+  "version": "1.0.0",
+  "methods": {
+    "greet": {
+      "description": "Say hello to the user"
+    },
+    "calculate": {
+      "description": "Perform calculations"
+    }
+  }
+}
