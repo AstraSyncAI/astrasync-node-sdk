@@ -1,6 +1,6 @@
 import { Agent, RegistrationResponse } from '../types';
 
-const DEFAULT_API_URL = 'https://astrasync-api-production.up.railway.app';
+const DEFAULT_API_URL = 'https://astrasync.ai/api';
 
 export class AstraSyncAPI {
   private apiUrl: string;

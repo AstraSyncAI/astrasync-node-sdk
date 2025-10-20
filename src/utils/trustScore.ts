@@ -19,5 +19,5 @@ export function calculateTrustScore(agent: Agent): number {
     }
   }
 
-  return Math.min(score, 95); // Cap at 95 for preview
+  return Math.min(score, 100); // Production scoring
 }
