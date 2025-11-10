@@ -18,6 +18,8 @@ export interface RegistrationResponse {
 
 export interface AstraSyncOptions {
   developerEmail: string;
+  apiKey?: string;
+  password?: string;
   apiUrl?: string;
 }
 

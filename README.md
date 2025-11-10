@@ -40,9 +40,11 @@ Then create a JavaScript file (e.g., `register-agent.js`):
 const { AstraSync } = require('@astrasyncai/sdk');
 
 async function main() {
-  // Initialize the client
+  // Initialize the client with authentication
   const client = new AstraSync({
-    developerEmail: 'your-email@example.com'
+    developerEmail: 'your-email@example.com',
+    apiKey: 'your-api-key'  // Get from https://astrasync.ai/settings/developer-tools
+    // OR use password: 'your-password' (not recommended for production)
   });
 
   // Your agent data (the SDK auto-detects the format)

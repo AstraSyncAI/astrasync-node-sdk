@@ -7,7 +7,12 @@ export class AstraSync {
   private api: AstraSyncAPI;
 
   constructor(options: AstraSyncOptions) {
-    this.api = new AstraSyncAPI(options.developerEmail, options.apiUrl);
+    this.api = new AstraSyncAPI(
+      options.developerEmail,
+      options.apiKey,
+      options.password,
+      options.apiUrl
+    );
   }
 
   async register(agentData: any): Promise<RegistrationResponse> {
